@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SARL CCF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #1f3c88;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    nav {
+      background: #162e66;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: #1f3c88;
+    }
+
+    .galeria {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .galeria img {
+  width: 100%;
+  max-width: 300px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.galeria {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+bnh
+
+    footer {
+      background: #1f3c88;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+.banner {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("imagens/banniere.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background: #1f3c88;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #162e66;
+}
+#confirmation {
+  text-align: center;
+  background: #f4f4f4;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#confirmation h3 {
+  color: #1f3c88;
+}
+#confirmation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
+  background: #f4f4f4;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: none;
+}
+
+#confirmation.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  </style>
+</head>
+<script>
+  function showMessage() {
+    setTimeout(function () {
+      const form = document.querySelector(".contact-form");
+      const confirmation = document.getElementById("confirmation");
+
+      form.style.display = "none";
+      confirmation.style.display = "block";
+
+      setTimeout(function () {
+        confirmation.classList.add("show");
+      }, 50);
+    }, 500);
+  }
+</script>
+
+<body>
+<script>
+  function showMessage() {
+    setTimeout(function () {
+      document.querySelector(".contact-form").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
+    }, 500);
+  }
+</script>
+
+<header class="banner">
+  <div>
+    <h1>SARL CCF</h1>
+    <p>Entreprise de Construction & Bâtiment</p>
+  </div>
+</header>
+
+<nav>
+  <a href="#accueil">Accueil</a>
+  <a href="#apropos">À propos</a>
+  <a href="#services">Services</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="accueil">
+  <h2>Bienvenue chez SARL CCF</h2>
+  <p>
+    Spécialisée dans la construction, la rénovation et le gros œuvre,
+    SARL CCF réalise vos projets avec sérieux et qualité.
+  </p>
+</section>
+
+<section id="apropos">
+  <h2>À propos de nous</h2>
+  <p>
+    Nous accompagnons particuliers et professionnels avec un engagement fort
+    sur la qualité, la sécurité et le respect des délais.
+  </p>
+</section>
+
+<section id="services">
+  <h2>Nos services</h2>
+  <ul>
+    <li>Construction de bâtiments</li>
+    <li>Rénovation complète</li>
+    <li>Gros œuvre et maçonnerie</li>
+    <li>Finitions</li>
+  </ul>
+</section>
+
+<section id="realisations">
+  <h2>Nos réalisations</h2>
+
+  <div class="galeria">
+    <img src="imagens/chantier1.jpg" alt="Chantier 1">
+    <img src="imagens/chantier2.jpg" alt="Chantier 2">
+    <img src="imagens/chantier3.jpg" alt="Chantier 3">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contactez-nous</h2>
+
+  <form
+    class="contact-form"
+    action="https://formspree.io/f/mykdkgov"
+    method="POST"
+    onsubmit="showMessage()"
+  >
+    <input type="text" name="nom" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
+    <input type="text" name="telephone" placeholder="Téléphone">
+    <textarea name="message" placeholder="Votre message" required></textarea>
+
+    <input type="hidden" name="_subject" value="Nouveau message – SARL CCF">
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div id="confirmation" style="display:none;">
+    <h3>✅ Merci pour votre message</h3>
+    <p>Nous vous répondrons dans les plus brefs délais.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 SARL CCF – Tous droits réservés
+</footer>
+
+</body>
+</html>
+
